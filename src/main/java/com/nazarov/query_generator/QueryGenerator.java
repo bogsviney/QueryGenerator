@@ -1,6 +1,4 @@
-package com.nazarov.querygenerator;
-
-import com.nazarov.querygenerator.entity.Person;
+package com.nazarov.query_generator;
 
 import java.io.Serializable;
 

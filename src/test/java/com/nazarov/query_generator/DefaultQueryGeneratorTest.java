@@ -1,8 +1,7 @@
-package com.nazarov.querygenerator;
+package com.nazarov.query_generator;
 
-import com.nazarov.querygenerator.entity.Person;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.nazarov.query_generator.entity.Person;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +21,7 @@ class DefaultQueryGeneratorTest {
         QueryGenerator queryGenerator = new DefaultQueryGenerator();
         int id = 23;
         String actualQuery = queryGenerator.findById(Person.class, id);
-        String expectedQuery = "SELECT id, person_name, person_salary FROM Person WHERE id = '23';";
+        String expectedQuery = "SELECT id, person_name, person_salary FROM Person WHERE id = 23;";
         assertEquals(expectedQuery, actualQuery);
     }
 
@@ -32,7 +31,7 @@ class DefaultQueryGeneratorTest {
         QueryGenerator queryGenerator = new DefaultQueryGenerator();
         int id = 23;
         String actualQuery = queryGenerator.deleteById(Person.class, id);
-        String expectedQuery = "DELETE FROM Person WHERE id = '23';";
+        String expectedQuery = "DELETE FROM Person WHERE id = 23;";
         assertEquals(expectedQuery, actualQuery);
     }
 
@@ -58,7 +57,7 @@ class DefaultQueryGeneratorTest {
         person.setName("Michael Jordan");
         person.setSalary(1500000.0);
         String actualQuery = queryGenerator.set(person);
-        String expectedQuery = "UPDATE Person SET person_name = 'Michael Jordan', person_salary = '1500000.0' WHERE id = '23';";
+        String expectedQuery = "UPDATE Person SET person_name = 'Michael Jordan', person_salary = '1500000.0' WHERE id = 23;";
         assertEquals(expectedQuery, actualQuery);
     }
 
